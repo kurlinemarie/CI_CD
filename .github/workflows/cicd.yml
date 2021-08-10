@@ -1,0 +1,23 @@
+name: CI_CD
+
+on: [push]
+jobs:
+ runs-on: ubuntu-lastest
+ job1:
+  name: checkout and run
+  steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: run hello
+      run: python hello.py
+ job2:
+  name: create archive
+  needs: [job1]
+  steps:
+    - name: archive
+      uses: actions/upload-artifact@v2
+        with:
+          name: hello
+          path: .
+      
+ 
