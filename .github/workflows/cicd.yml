@@ -3,7 +3,7 @@ name: CI_CD
 on: [push]
 jobs:
  job1:
-  runs-on: ubuntu@latest
+  runs-on: ubuntu-latest
   name: checkout and run
   steps:
     - name: checkout
@@ -11,7 +11,7 @@ jobs:
     - name: run hello
       run: python hello.py
  job2:
-  runs-on: ubuntu@latest
+  runs-on: ubuntu-latest
   name: create archive
   needs: [job1]
   steps:
