@@ -2,8 +2,8 @@ name: CI_CD
 
 on: [push]
 jobs:
- runs-on: ubuntu-lastest
  job1:
+  runs-on: ubuntu@latest
   name: checkout and run
   steps:
     - name: checkout
@@ -11,13 +11,14 @@ jobs:
     - name: run hello
       run: python hello.py
  job2:
+  runs-on: ubuntu@latest
   name: create archive
   needs: [job1]
   steps:
     - name: archive
       uses: actions/upload-artifact@v2
-        with:
-          name: hello
-          path: .
+      with: 
+       name: hello
+       path: .
       
  
